@@ -1,0 +1,28 @@
+body {
+  font-size: 1.3rem;
+}
+.jumbotron {
+  padding: 4rem 0;
+  background-color: #e2edff;
+  height: 100vh;
+}
+.jumbotron h1 {
+  font-weight: bold;
+}
+.projects {
+  background-color: #e2edff;
+}
+section {
+  padding-top: 5rem;
+}
+nav ul li:hover {
+  background-color: rgb(33, 122, 255);
+}
+.Album {
+  background-color: #e2edff;
+}
+@media (min-width: 800px) {
+  .about {
+    height: 100vh;
+  }
+}
