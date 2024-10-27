@@ -23,6 +23,13 @@ nav ul li a:hover {
     height: 100vh;
     color: #333;
 }
+.kartu {
+    width: 70%;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.150);
+    backdrop-filter:saturate(200%) blur(0.7rem);
+    color: black;
+}
 .about {
     padding: 5rem 0 3rem 0;
 }
