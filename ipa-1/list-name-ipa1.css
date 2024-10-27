@@ -24,8 +24,8 @@ nav ul li a:hover {
     color: #333;
 }
 .kartu {
-    width: 70%;
-    height: 70%;
+    width: 85%;
+    height: 85%;
     background-color: rgba(255, 255, 255, 0.150);
     backdrop-filter:saturate(200%) blur(0.7rem);
     color: black;
@@ -39,3 +39,8 @@ nav ul li a:hover {
 .maps {
     width: 80%;
 }
+/* @media (min-width: 800px) {
+    .kartu {
+        font-size: 10px;
+    }
+} */
