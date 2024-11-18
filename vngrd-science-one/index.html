@@ -25,7 +25,7 @@
     <!-- aos css -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- my css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <title>My class</title>
   </head>
@@ -70,7 +70,10 @@
     <!-- akhir navbar -->
 
     <!-- jumbotron -->
-    <section class="jumbotron container-fluid text-center mb-3" id="home">
+    <section
+      class="jumbotron container-fluid text-center mb-3 overflow-auto"
+      id="home"
+    >
       <div class="logo position-absolute top-50 start-50 translate-middle">
         <img
           src="img-ipa1/logo-kls.jpg"
@@ -88,7 +91,7 @@
     <!-- akhir jumbotron -->
 
     <!-- about -->
-    <section class="about container-fluid" id="about">
+    <section class="about container-fluid overflow-auto" id="about">
       <div class="container">
         <div class="row">
           <div class="col text-center">
@@ -141,7 +144,7 @@
     <!-- akhir about -->
 
     <!-- Album -->
-    <section class="Album mt-3 container-fluid" id="Album">
+    <section class="Album mt-3 container-fluid overflow-auto" id="Album">
       <div class="container">
         <div class="row">
           <div class="col text-center mb-3">
@@ -261,15 +264,15 @@
     <!-- akhir Album -->
 
     <!-- contact -->
-    <section class="contact container-fluid" id="contact">
+    <section class="contact container-fluid overflow-auto" id="contact">
       <div class="container">
         <div class="row">
           <div class="col text-center mb-3 mt-3">
             <h2>Kontak kami</h2>
           </div>
         </div>
-        <div class="row text-center">
-          <div class="col-md-12 justify-content-center">
+        <div class="row text-center justify-content-center">
+          <div class="col-md-10 justify-content-center">
             <div class="list-group">
               <a
                 href="https://instagram.com/vngrd.scienceone"
@@ -290,13 +293,39 @@
               >
             </div>
           </div>
+          <!-- akhir ig -->
+          <div class="col-md-10 justify-content-center mt-3">
+            <div class="list-group">
+              <a
+                href="https://tr.ee/jJdzO6eb3P"
+                class="list-group-item list-group-item-action"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-spotify"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"
+                  />
+                </svg>
+                Playlist 12 IPA 1</a
+              >
+            </div>
+          </div>
+
+          <!-- akhir spotify -->
         </div>
       </div>
     </section>
     <!-- akhir contact -->
 
     <!-- footer -->
-    <footer class="bg-dark text-white text-center container-fluid mt-5">
+    <footer
+      class="bg-dark text-white text-center container-fluid mt-5 overflow-auto"
+    >
       <p>
         &copy;created with
         <a
