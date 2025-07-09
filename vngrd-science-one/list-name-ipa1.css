@@ -1,40 +1,320 @@
-
-body {
-    min-height: 2000px;
-}
-a {
-    text-decoration: none;
-}
-.linkig:hover {
-    color: #dc3545;
-}
-nav img {
-    width: 40px;
-    
-}
-
-nav ul li a:hover {
-    text-decoration-line: underline;
-}
-.jumbotron {
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+    min-height: 100vh; /* Menggunakan min-height agar footer selalu di bawah */
+    display: flex; /* Menggunakan flexbox untuk layout halaman */
+    flex-direction: column; /* Mengatur item flex ke dalam kolom */
+  }
+  
+  /* Memastikan konten utama bisa tumbuh dan footer tetap di bawah */
+  main {
+    flex: 1;
+  }
+  
+  /* --- Navbar Styling --- */
+  .navbar {
+    transition: background-color 0.3s ease;
+    z-index: 1020; /* Pastikan navbar di atas elemen lain */
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: #333 !important; /* Mengubah warna teks brand agar kontras dengan bg-warning */
+    font-size: 1.25rem;
+  }
+  
+  .navbar-brand img {
+    width: 40px; /* Ukuran logo di navbar */
+    height: 40px;
+  }
+  
+  .navbar-toggler {
+    border: none; /* Hilangkan border pada toggler */
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgba(51, 51, 51, 0.85) !important; /* Warna link navbar agar kontras dengan bg-warning */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 0.5rem 1rem; /* Padding untuk area klik */
+    border-radius: 0.375rem; /* Sudut membulat */
+  }
+  
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: #000 !important; /* Warna hover/active lebih gelap */
+    background-color: rgba(0, 0, 0, 0.1); /* Sedikit latar belakang saat hover */
+  }
+  
+  /* --- Jumbotron Styling --- */
+  .jumbotron {
+    position: relative;
     padding: 8rem 1rem 3rem 1rem;
-    /* background-image: url(../../latihan1/img/bg01.jpg); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url(img-ipa1/Bg01.jpg); /* Tambah overlay dan path gambar yang benar */
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Efek parallax */
     height: 100vh;
+    color: #fff; /* Warna teks putih */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Shadow pada teks */
+    display: flex; /* Menggunakan flexbox untuk centering konten */
+    align-items: center; /* Centering vertikal */
+    justify-content: center; /* Centering horizontal */
+    text-align: center; /* Memastikan teks di tengah */
+  }
+  
+  .jumbotron h2 {
+    font-weight: bold;
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* Ukuran responsif */
+    margin-bottom: 1rem;
+  }
+  
+  .jumbotron h3 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem); /* Ukuran responsif */
+  }
+  
+  /* --- About Section Styling --- */
+  .about {
+    padding: 5rem 0; /* Padding atas bawah */
+    background-color: #f8f9fa; /* Warna latar belakang yang lebih terang */
+  }
+  
+  .about h2 {
+    font-weight: bold;
+    color: #0d6efd; /* Warna judul yang senada dengan navbar utama */
+    margin-bottom: 2.5rem;
+  }
+  
+  .about p {
+    font-size: 1.1rem;
+    text-align: justify; /* Teks rata kanan kiri */
+    margin-bottom: 1.2rem;
+  }
+  
+  .about h4 {
+    color: #0d6efd;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about iframe {
+    max-width: 100%; /* Pastikan iframe responsif */
+    height: 350px; /* Tinggi default */
+  }
+  
+  /* --- Daftar Nama Section Styling --- */
+  .daftar-nama {
+    background-color: #fff0c5; /* Warna latar belakang sesuai yang Anda berikan */
+    padding: 5rem 0; /* Padding atas bawah */
+  }
+  
+  .daftar-nama h2 {
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 3rem; /* Jarak bawah judul */
+  }
+  
+  .daftar-nama .member-card {
+    border: none;
+    border-radius: 15px; /* Sudut membulat yang lebih besar */
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Shadow lebih menonjol */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .daftar-nama .member-card:hover {
+    transform: translateY(-10px); /* Naik lebih tinggi saat hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Shadow lebih tebal */
+  }
+  
+  .daftar-nama .member-img {
+    height: 250px; /* Tinggi gambar seragam untuk semua kartu */
+    object-fit: cover; /* Pastikan gambar mengisi area tanpa terdistorsi */
+    width: 100%; /* Pastikan gambar mengisi lebar card */
+  }
+  
+  .daftar-nama .card-body {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .daftar-nama .card-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
     color: #333;
-}
-.about {
-    padding: 5rem 0 3rem 0;
-}
-.Album {
-    background-color: #fff0c5;
-}
-.maps {
-    width: 80%;
-}
-/* @media (min-width: 800px) {
-    .kartu {
-        font-size: 10px;
+  }
+  
+  .daftar-nama .card-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #666;
+  }
+  
+  .daftar-nama .message-details {
+    background-color: #f0f0f0; /* Latar belakang untuk kesan/pesan */
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    text-align: left; /* Teks kesan/pesan rata kiri */
+    font-size: 0.95rem;
+  }
+  
+  .daftar-nama .message-details summary {
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none; /* Hilangkan bullet default */
+  }
+  
+  .daftar-nama .message-details summary::-webkit-details-marker {
+    display: none; /* Hilangkan marker default di WebKit */
+  }
+  
+  .daftar-nama .message-details p {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .daftar-nama .blockquote-footer {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: #777;
+  }
+  
+  .daftar-nama .btn-primary {
+    background-color: #0d6efd; /* Warna biru Bootstrap primary */
+    border-color: #0d6efd;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+      transform 0.2s ease;
+  }
+  
+  .daftar-nama .btn-primary:hover {
+    background-color: #0a58ca; /* Warna biru lebih gelap saat hover */
+    border-color: #0a58ca;
+    transform: translateY(-2px);
+  }
+  
+  .daftar-nama .btn-primary.disabled {
+    opacity: 0.6;
+    pointer-events: none; /* Tidak bisa diklik */
+  }
+  
+  /* --- Footer Styling --- */
+  footer {
+    padding: 2.5rem 0;
+    background-color: #222;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    margin-top: auto; /* Memastikan footer selalu di bawah */
+  }
+  
+  footer p {
+    margin-bottom: 0.7rem;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #0d6efd; /* Warna primary saat hover */
+  }
+  
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 992px) {
+    .navbar-brand {
+      font-size: 1.1rem;
     }
-} */
+    .navbar-nav .nav-link {
+      padding: 0.5rem 0.75rem;
+    }
+    .jumbotron h2 {
+      font-size: clamp(2rem, 7vw, 3.5rem);
+    }
+    .jumbotron h3 {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+    }
+    .about h2,
+    .daftar-nama h2 {
+      font-size: 2rem;
+    }
+    .about p {
+      font-size: 1rem;
+    }
+    .daftar-nama .member-img {
+      height: 180px;
+    }
+    .daftar-nama .card-title {
+      font-size: 1.2rem;
+    }
+    .daftar-nama .card-text,
+    .daftar-nama .message-details p,
+    .daftar-nama .blockquote-footer {
+      font-size: 0.85rem;
+    }
+    .daftar-nama .btn-primary {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 1rem;
+    }
+    .jumbotron {
+      background-attachment: scroll; /* Nonaktifkan parallax di mobile */
+    }
+    .jumbotron h2 {
+      font-size: clamp(1.8rem, 6vw, 3rem);
+    }
+    .jumbotron h3 {
+      font-size: clamp(0.9rem, 2vw, 1.2rem);
+    }
+    .about,
+    .daftar-nama {
+      padding: 3rem 0;
+    }
+    .about h2,
+    .daftar-nama h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .about p {
+      font-size: 0.95rem;
+    }
+    .about iframe {
+      height: 250px; /* Tinggi iframe lebih kecil di mobile */
+    }
+    .daftar-nama .member-img {
+      height: 160px;
+    }
+    .daftar-nama .card-body {
+      padding: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-nav .nav-link {
+      padding: 0.5rem 0.5rem;
+    }
+    .daftar-nama .member-card {
+      margin-bottom: 1.5rem; /* Tambah margin bawah pada card di layar kecil */
+    }
+    .daftar-nama .member-img {
+      height: 200px; /* Sesuaikan tinggi gambar untuk tampilan vertikal di mobile */
+    }
+  }
