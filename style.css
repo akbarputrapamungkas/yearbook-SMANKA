@@ -6,55 +6,101 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
-  overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+  min-height: 100vh; /* Ensures footer stays at the bottom */
+  display: flex; /* Uses flexbox for overall page layout */
+  flex-direction: column; /* Stacks flex items vertically */
 }
 
-/* Navbar Styling */
+/* Ensures main content grows to push footer down */
+main {
+  flex: 1;
+}
+
+/* --- Navbar Styling --- */
 .navbar {
   transition: background-color 0.3s ease;
+  z-index: 1020; /* Ensures navbar is above other elements */
 }
 
 .navbar-brand {
   font-weight: bold;
-  color: #fff !important;
-  font-size: 1.25rem; /* Ukuran font brand */
+  color: #fff !important; /* White text for brand in dark navbar */
+  font-size: 1.25rem;
+}
+
+.navbar-brand img {
+  width: 30px; /* Size of the logo in the navbar */
+  height: 30px;
+}
+
+.navbar-toggler {
+  border: none; /* Removes default border from toggler button */
 }
 
 .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: rgba(255, 255, 255, 0.85) !important; /* Navbar link color */
   transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 0.5rem 1rem; /* Padding untuk area klik */
-  border-radius: 0.375rem; /* Sudut membulat */
+  padding: 0.5rem 1rem; /* Padding for click area */
+  border-radius: 0.375rem; /* Slightly rounded corners */
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
   color: #fff !important;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover/active */
 }
 
 .navbar-nav .dropdown-menu {
-  background-color: #0d6efd;
+  background-color: #0d6efd; /* Dropdown menu color to match navbar */
   border: none;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Shadow pada dropdown */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Dropdown shadow */
 }
 
 .navbar-nav .dropdown-item {
   color: #fff;
   transition: background-color 0.3s ease;
-  padding: 0.75rem 1.5rem; /* Padding lebih besar */
+  padding: 0.75rem 1.5rem; /* Larger padding for dropdown items */
 }
 
 .navbar-nav .dropdown-item:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Jumbotron Styling */
+/* --- Jumbotron Styling (for root index.html) --- */
 .jumbotron {
   position: relative;
   padding: 4rem 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(vngrd-science-one/img-ipa1/Bg01.jpg);
+    url(vngrd-science-one/img-ipa1/Bg01.jpg); /* Correct image path */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax effect */
+  height: 100vh;
+  display: flex; /* For centering content */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+  text-align: center; /* Ensures text is centered */
+}
+
+.jumbotron h1 {
+  font-weight: bold;
+  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Responsive font size */
+  margin-bottom: 1rem;
+}
+
+.jumbotron p {
+  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsive font size */
+}
+
+/* --- Jumbotron Styling (for vngrd-science-one/index.html) --- */
+.jumbotron-ipa1 {
+  position: relative;
+  padding: 4rem 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(vngrd-science-one/img-ipa1/Bg-kls.jpg); /* Use a different background image if desired */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -63,90 +109,130 @@ body {
   align-items: center;
   justify-content: center;
   color: #fff;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Shadow lebih kuat */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-align: center;
 }
 
-.jumbotron h1 {
+.jumbotron-ipa1 h1 {
   font-weight: bold;
-  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Ukuran responsif */
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
   margin-bottom: 1rem;
 }
 
-.jumbotron p {
-  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Ukuran responsif */
+.jumbotron-ipa1 p {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
 }
 
-/* About Section Styling */
+/* --- About Section Styling --- */
 .about {
-  background-color: #f8f9fa;
-  min-height: 100vh;
+  padding: 5rem 0;
+  background-color: #f8f9fa; /* Lighter background color */
+  min-height: 100vh; /* Ensures minimum height for AOS effect on large screens */
   display: flex;
-  align-items: center;
-  padding-top: 5rem; /* Pastikan padding atas agar tidak tertutup navbar */
-  padding-bottom: 5rem;
+  align-items: center; /* Vertical centering */
 }
 
 .about h2 {
   font-weight: bold;
-  color: #0d6efd;
+  color: #0d6efd; /* Title color matching primary theme */
   margin-bottom: 2.5rem;
 }
 
 .about p {
   font-size: 1.1rem;
-  text-align: justify;
-  margin-bottom: 1.2rem; /* Jarak antar paragraf lebih baik */
+  text-align: justify; /* Justified text for better readability */
+  margin-bottom: 1.2rem;
 }
 
-/* Album Section Styling */
-.Album {
+.about h4 {
+  color: #0d6efd;
+  margin-bottom: 1.5rem;
+}
+
+.about iframe {
+  max-width: 100%; /* Ensures iframe is responsive */
+  height: 350px; /* Default height for the iframe */
+}
+
+/* --- Album Section Styling --- */
+.album {
+  /* Renamed from .Album to .album for consistency */
   background-color: #e2edff;
   padding: 5rem 0;
 }
 
-.Album h2 {
+.album h2 {
   font-weight: bold;
   color: #0d6efd;
-  margin-bottom: 3rem; /* Jarak bawah judul lebih besar */
+  margin-bottom: 3rem; /* Larger bottom margin for title */
 }
 
-.Album .card {
+.album .album-card {
+  /* Renamed from .card to .album-card for specificity */
   border: none;
-  border-radius: 12px; /* Sudut membulat sedikit lebih besar */
+  border-radius: 12px; /* Slightly larger rounded corners */
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Shadow lebih jelas */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Clearer shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.Album .card:hover {
-  transform: translateY(-8px); /* Sedikit naik saat hover */
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Shadow lebih tebal saat hover */
+.album .album-card:hover {
+  transform: translateY(-8px); /* Lifts slightly on hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Thicker shadow on hover */
 }
 
-.Album .card-img-top {
-  height: 220px; /* Tinggi gambar yang seragam */
-  object-fit: cover;
-  width: 100%; /* Pastikan gambar mengisi lebar card */
+.album .album-img {
+  /* Renamed from .card-img-top to .album-img for specificity */
+  height: 220px; /* Uniform image height for all cards */
+  object-fit: cover; /* Ensures images fill area without distortion */
+  width: 100%; /* Ensures image fills card width */
 }
 
-.Album .card-body {
-  padding: 1.5rem; /* Padding dalam card body */
+.album .card-body {
+  padding: 1.5rem; /* Padding inside card body */
+  text-align: center; /* Centers text inside card body */
 }
 
-.Album .card-body p {
-  font-size: 1.05rem; /* Ukuran font deskripsi card */
+.album .card-text {
+  font-size: 1.05rem; /* Font size for card descriptions */
   color: #555;
-  text-align: center;
   margin-bottom: 0;
 }
 
-.Album .card a {
+.album .album-card a {
   text-decoration: none;
   color: inherit;
-  display: block; /* Agar link mencakup seluruh area gambar */
+  display: block; /* Makes the entire image area clickable */
 }
 
-/* Contact Section Styling */
+.album .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.album .btn-primary:hover {
+  background-color: #0a58ca;
+  border-color: #0a58ca;
+  transform: translateY(-2px);
+}
+
+.album .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* --- Contact Section Styling --- */
 .contact {
   padding: 5rem 0;
   background-color: #f8f9fa;
@@ -168,49 +254,130 @@ body {
     border-color 0.3s ease;
   font-size: 1.2rem;
   color: #0d6efd;
-  border: 2px solid #0d6efd; /* Border lebih tebal */
-  padding: 1rem 1.5rem; /* Padding lebih besar */
+  border: 2px solid #0d6efd;
+  padding: 1rem 1.5rem;
 }
 
 .contact .list-group-item svg {
-  margin-right: 12px; /* Jarak ikon dan teks */
+  margin-right: 12px;
 }
 
 .contact .list-group-item:hover {
   background-color: #0d6efd;
   color: #fff;
-  transform: translateY(-5px); /* Lebih naik saat hover */
-  border-color: #0d6efd; /* Border tetap primary */
+  transform: translateY(-5px);
+  border-color: #0d6efd;
 }
 
 .contact .list-group-item:hover svg {
   color: #fff;
 }
 
-/* Footer Styling */
-footer {
-  padding: 2.5rem 0;
+/* --- Footer Styling --- */
+.main-footer {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   background-color: #222;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
+  margin-top: auto; /* Ensures footer always stays at the bottom */
 }
 
-footer p {
-  margin-bottom: 0.7rem;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: none;
+.main-footer h5,
+.main-footer h6 {
+  color: #0d6efd; /* Primary color for column titles */
   font-weight: bold;
+}
+
+.main-footer p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.main-footer p.small {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.main-footer .footer-logo-container {
+  max-width: 120px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.main-footer .footer-smanka-logo {
+  width: 80px;
+  height: auto;
+}
+
+.main-footer .list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+.main-footer .list-unstyled a {
+  color: rgba(255, 255, 255, 0.75) !important;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
-footer a:hover {
+.main-footer .list-unstyled a:hover {
+  color: #fff !important;
+}
+
+.main-footer .contact-info i {
+  margin-right: 0.5rem;
   color: #0d6efd;
 }
 
-/* Media Queries for better responsiveness */
+.main-footer .social-icons a {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+.main-footer .social-icons a:hover {
+  color: #0d6efd;
+}
+
+.main-footer .map-responsive {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.main-footer .map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.main-footer .footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+}
+
+.main-footer .footer-bottom-bar p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.main-footer .footer-bottom-bar a {
+  color: rgba(255, 255, 255, 0.75) !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.main-footer .footer-bottom-bar a:hover {
+  color: #fff !important;
+}
+
+/* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
   .navbar-brand {
     font-size: 1.1rem;
@@ -218,25 +385,34 @@ footer a:hover {
   .navbar-nav .nav-link {
     padding: 0.5rem 0.75rem;
   }
-  .jumbotron h1 {
+  .jumbotron h1,
+  .jumbotron-ipa1 h1 {
     font-size: clamp(2rem, 7vw, 3.5rem);
   }
-  .jumbotron p {
+  .jumbotron p,
+  .jumbotron-ipa1 p {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
   }
   .about h2,
-  .Album h2,
+  .album h2, /* Changed from .Album to .album */
   .contact h2 {
     font-size: 2rem;
   }
   .about p {
     font-size: 1rem;
   }
-  .Album .card-img-top {
+  .album .album-img {
+    /* Changed from .Album .card-img-top */
     height: 180px;
   }
-  .Album .card-body p {
+  .album .card-body p {
+    /* Changed from .Album .card-body p */
     font-size: 0.95rem;
+  }
+  .album .btn-primary,
+  .album .btn-secondary {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
   }
   .contact .list-group-item {
     font-size: 1.1rem;
@@ -248,23 +424,26 @@ footer a:hover {
   .navbar-brand {
     font-size: 1rem;
   }
-  .jumbotron {
-    background-attachment: scroll; /* Nonaktifkan parallax di mobile */
+  .jumbotron,
+  .jumbotron-ipa1 {
+    background-attachment: scroll; /* Disables parallax on mobile */
   }
-  .jumbotron h1 {
+  .jumbotron h1,
+  .jumbotron-ipa1 h1 {
     font-size: clamp(1.8rem, 6vw, 3rem);
   }
-  .jumbotron p {
+  .jumbotron p,
+  .jumbotron-ipa1 p {
     font-size: clamp(0.9rem, 2vw, 1.2rem);
   }
   .about,
-  .Album,
+  .album, /* Changed from .Album */
   .contact {
-    min-height: unset; /* Hilangkan min-height 100vh di mobile */
+    min-height: unset; /* Removes 100vh min-height on mobile */
     padding: 3rem 0;
   }
   .about h2,
-  .Album h2,
+  .album h2, /* Changed from .Album */
   .contact h2 {
     font-size: 1.8rem;
     margin-bottom: 2rem;
@@ -272,12 +451,25 @@ footer a:hover {
   .about p {
     font-size: 0.95rem;
   }
-  .Album .card-img-top {
+  .about iframe {
+    height: 250px; /* Smaller iframe height on mobile */
+  }
+  .album .album-img {
+    /* Changed from .Album .card-img-top */
     height: 160px;
+  }
+  .album .album-card {
+    /* Changed from .Album .card */
+    margin-bottom: 1.5rem; /* Adds bottom margin to cards on small screens */
   }
   .contact .list-group-item {
     font-size: 1rem;
     padding: 0.7rem 0.8rem;
+  }
+  .main-footer .footer-logo-container,
+  .main-footer .text-md-start,
+  .main-footer .text-md-end {
+    text-align: center !important; /* Centers all text on mobile */
   }
 }
 
@@ -285,7 +477,8 @@ footer a:hover {
   .navbar-nav .nav-link {
     padding: 0.5rem 0.5rem;
   }
-  .Album .card {
-    margin-bottom: 1.5rem; /* Tambah margin bawah pada card di layar kecil */
+  .album .album-card {
+    /* Changed from .Album .card */
+    margin-bottom: 1.5rem; /* Ensures consistent margin on extra small screens */
   }
 }
